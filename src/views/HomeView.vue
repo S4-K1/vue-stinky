@@ -1,31 +1,23 @@
 <script setup>
-import { useQuery } from '@vue/apollo-composable'
-import gql from 'graphql-tag'
-import { computed } from 'vue'
+import SearchResults from '../components/SearchResults.vue'
+import { ref } from 'vue'
 
-const countryQuery = gql`
-  query {
-    countries {
-      edges {
-        node {
-          name
-        }
-      }
-    }
-  }
-`
+const search = ref('')
 
-const { result } = useQuery(countryQuery)
-
-const countries = computed(() => result.value?.countries.edges ?? [])
-
+function onEnter(content) {
+  search.value = content
+}
 </script>
 
 <template>
   <main>
     <h1>20 countries</h1>
-    <ul>
-      <li v-for="country in countries" :key="country.node.name">{{ country.node.name }}</li>
-    </ul>
+    <SearchResults :key="search" :searchQuery="search" />
+    <input
+      type="text"
+      v-model="input"
+      v-on:keypress.enter="onEnter(input)"
+      placeholder="Search country"
+    />
   </main>
 </template>

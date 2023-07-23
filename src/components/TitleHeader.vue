@@ -11,8 +11,8 @@ defineProps({
   <div class="greetings">
     <h1 class="green">{{ msg }}</h1>
     <h3>
-      There should hopefully be the actual requirements for this technical test somewhere but
-      there's also some stupid stuff that I did whilst fiddling around with Vue too
+      Along with the requirements for this technical test I also played around with Vue and put it
+      here too
     </h3>
   </div>
 </template>

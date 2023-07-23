@@ -7,15 +7,15 @@ import App from './App.vue'
 import router from './router'
 
 const httpLink = createHttpLink({
-//   uri: 'http://localhost:5173/graphiql'
-	uri: 'https://graphql.country/graphql'
+  //   uri: 'http://localhost:5173/graphiql'
+  uri: 'https://graphql.country/graphql'
 })
 
 const cache = new InMemoryCache()
 
 const apolloClient = new ApolloClient({
   link: httpLink,
-  cache,
+  cache
 })
 
 const app = createApp({

@@ -1,13 +1,12 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import TitleHeader from './components/TitleHeader.vue'
 </script>
 
 <template>
   <header>
     <div class="wrapper">
-      <HelloWorld msg="Welcome to my dumb code!" />
-
+      <TitleHeader msg="Welcome to my dumb code!" />
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/bzzz">The entire Bee Movie script</RouterLink>
