@@ -1,14 +1,13 @@
-// apollo.config.js
-
 // eslint-disable-next-line no-undef
 module.exports = {
 	client: {
 		service: {
 			name: 'vueTest',
-			url: 'http://localhost:5173,graphql'
+			url: 'https://graphql.country/graphql',
 		},
 		includes: [
-			'src/views/HomeView.vue'
+			'src/**/*.vue',
+			'src/**/*.js',
 		],
 	},
 }

@@ -1,5 +1,6 @@
 <template>
   <div class="bzzz">
+    <h4>Note to future Riley: This only works with an internet connection</h4>
     <div id="gist"></div>
   </div>
 </template>
@@ -22,8 +23,6 @@ export default {
 @media (min-width: 1024px) {
   .bzzz {
     min-height: 100vh;
-    display: flex;
-    align-items: center;
   }
 }
 </style>

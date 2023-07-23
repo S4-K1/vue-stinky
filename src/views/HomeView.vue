@@ -1,32 +1,31 @@
 <script setup>
-  import { useQuery} from '@vue/apollo-composable'
-  import gql from 'graphql-tag'
-import { watchEffect, computed } from 'vue';
+import { useQuery } from '@vue/apollo-composable'
+import gql from 'graphql-tag'
+import { computed } from 'vue'
 
-  const countryQuery = gql`
-    query {
-      countries {
-        edges {
-          node {
-            name
-          }
+const countryQuery = gql`
+  query {
+    countries {
+      edges {
+        node {
+          name
         }
       }
     }
-  `
+  }
+`
 
-  const { result } = useQuery(countryQuery)
+const { result } = useQuery(countryQuery)
 
-  const items = computed(() => result.value?.countries ?? [])
+const countries = computed(() => result.value?.countries.edges ?? [])
 
-  watchEffect(() => {
-    console.log('Here stupid', items)
-  })
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <h1>20 countries</h1>
+    <ul>
+      <li v-for="country in countries" :key="country.node.name">{{ country.node.name }}</li>
+    </ul>
   </main>
 </template>
-
